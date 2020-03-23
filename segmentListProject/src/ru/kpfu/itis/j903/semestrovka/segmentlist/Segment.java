@@ -56,4 +56,3 @@ public class Segment {
         String str = "[(" + firstXCoordinate + "," + firstYCoordinate + ")" + "(" + secondXCoordinate + "," + secondYCoordinate + ")]";
         return str;
     }
-}
