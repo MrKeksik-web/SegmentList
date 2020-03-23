@@ -23,5 +23,4 @@ public class SegmentList {
         ArrayList<Segment> angle =
     }
 
-    public
 }
