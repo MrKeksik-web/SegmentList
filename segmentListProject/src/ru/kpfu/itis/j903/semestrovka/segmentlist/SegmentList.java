@@ -19,9 +19,8 @@ public class SegmentList {
         }
     }
 
-    public SegmentList angleList(){
-        ArrayList<Segment> angle =
+    public void test(){
+
     }
 
-    public
 }
