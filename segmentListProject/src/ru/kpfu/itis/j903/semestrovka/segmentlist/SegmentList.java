@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 public class SegmentList {
     protected ArrayList<Segment> segments;
-    private int size;
 
     public SegmentList(String path){
         try(DataSegmentInputStream in = new DataSegmentInputStream(new FileInputStream(path))) {
             segments = in.readSegmentList();
-            size = segments.size();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,8 +44,8 @@ public class SegmentList {
     }
 
     public void sort(){
-        for(int i = 0;i < size;i++){
-            for(int j = 0;j < size;j++){
+        for(int i = 0;i < segments.size();i++){
+            for(int j = 0;j < segments.size();j++){
                 if(segments.get(i).getLength() < segments.get(j).getLength()){
                     Segment seg = segments.get(i);
                     segments.set(i,segments.get(j));
