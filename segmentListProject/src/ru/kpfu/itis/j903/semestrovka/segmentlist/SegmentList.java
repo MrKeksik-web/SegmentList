@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SegmentList {
+
     protected List<Segment> segments;
+
 
     public SegmentList(String path) {
         try (DataSegmentInputStream in = new DataSegmentInputStream(new FileInputStream(path))) {
@@ -54,6 +56,8 @@ public class SegmentList {
         for (int i = 0; i < segments.size(); i++) {
             for (int j = 0; j < segments.size(); j++) {
                 if (segments.get(i).getLength() < segments.get(j).getLength()) {
+
+
                     Segment seg = segments.get(i);
                     segments.set(i, segments.get(j));
                     segments.set(j, seg);
