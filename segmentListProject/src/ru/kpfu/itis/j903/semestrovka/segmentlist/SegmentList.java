@@ -32,7 +32,7 @@ public class SegmentList {
     }
 
     public SegmentList angleList() {
-        double epsilon = 0.000000001;
+        double epsilon = 0.000001;
         List<Segment> newList = segments.stream()
                 .filter(segment -> {
                     double k = (segment.getSecondYCoordinate() - segment.getFirstYCoordinate()) * 1.0 / (segment.getSecondXCoordinate() - segment.getFirstXCoordinate());
