@@ -9,18 +9,14 @@ import java.nio.ByteBuffer;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        DataSegmentOutputStream out = new DataSegmentOutputStream(new FileOutputStream("input.txt"));
+        out.writeCoord(10);
+        out.writeCoord(10);
+        out.writeCoord(150);
+        out.writeCoord(150);
         SegmentList list = new SegmentList("input.txt");
         list.show();
-//        FileOutputStream out = new FileOutputStream("input.txt");
-//        ByteBuffer bb = ByteBuffer.allocate(32);
-//        bb.putInt(1);
-//        bb.putInt(1);
-//        bb.putInt(2);
-//        bb.putInt(2);
-//        bb.putInt(3);
-//        bb.putInt(3);
-//        bb.putInt(5);
-//        bb.putInt(5);
-//        out.write(bb.array());
+        list.lengthList(1,5);
+        list.show();
     }
 }
