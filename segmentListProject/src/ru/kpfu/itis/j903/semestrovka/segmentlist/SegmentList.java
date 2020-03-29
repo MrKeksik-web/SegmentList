@@ -32,10 +32,11 @@ public class SegmentList {
     }
 
     public SegmentList angleList() {
+        double epsilon = 0.000000001;
         List<Segment> newList = segments.stream()
                 .filter(segment -> {
                     double k = (segment.getSecondYCoordinate() - segment.getFirstYCoordinate()) * 1.0 / (segment.getSecondXCoordinate() - segment.getFirstXCoordinate());
-                    if (Math.sqrt(3) / 3 == k || 1 == k) {
+                    if (Math.abs(k - Math.sqrt(3)/3) < epsilon || Math.abs(k - 1) < epsilon) {
                         return true;
                     }
                     return false;
