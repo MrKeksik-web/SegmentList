@@ -1,20 +1,20 @@
 package ru.kpfu.itis.j903.semestrovka.segmentlist;
 
-import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class SegmentList {
     protected ArrayList<Segment> segments;
     private int size;
 
-    public SegmentList(String path) {
-        SegmentInputStream in = new SegmentInputStream();
-        segments = in.readSegmentList(path);
-        size = 0;
+    public SegmentList(String path){
+        try(DataSegmentInputStream in = new DataSegmentInputStream(new FileInputStream(path))) {
+            segments = in.readSegmentList();
+            size = segments.size();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void show(){
