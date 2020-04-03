@@ -10,11 +10,27 @@ public class MethodTester {
         return t2 - t1;
     }
 
+    public long showTime(){
+        SegmentList list = new SegmentList(dataPath);
+        long t1 = System.currentTimeMillis();
+        list.show();
+        long t2 = System.currentTimeMillis();
+        return t2 - t1;
+    }
+
     public long insertTime(){
         Segment segment = new Segment((int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000));
         SegmentList list = new SegmentList(dataPath);
         long t1 = System.currentTimeMillis();
         list.insert(segment);
+        long t2 = System.currentTimeMillis();
+        return t2 - t1;
+    }
+
+    public long angleTime(){
+        SegmentList list = new SegmentList(dataPath);
+        long t1 = System.currentTimeMillis();
+        list.angleList();
         long t2 = System.currentTimeMillis();
         return t2 - t1;
     }
@@ -30,6 +46,14 @@ public class MethodTester {
         SegmentList list = new SegmentList(dataPath);
         long t1 = System.currentTimeMillis();
         list.lengthList(a, b);
+        long t2 = System.currentTimeMillis();
+        return t2 - t1;
+    }
+
+    public long sortTime(){
+        SegmentList list = new SegmentList(dataPath);
+        long t1 = System.currentTimeMillis();
+        list.sort();
         long t2 = System.currentTimeMillis();
         return t2 - t1;
     }
