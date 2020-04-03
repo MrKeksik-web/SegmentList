@@ -9,9 +9,9 @@ public class SegmentTestsGenerator {
 
     public SegmentTestsGenerator(int count) {
         String path = "output.txt";
-        try(DataSegmentOutputStream out = new DataSegmentOutputStream(new FileOutputStream(path))){
-            for(int i = 0;i < count;i++){
-                Segment segment = new Segment((int)(Math.random()* 2000 - 1000),(int)(Math.random()* 2000 - 1000),(int)(Math.random()*2000 - 1000),(int)(Math.random()*2000 - 1000));
+        try (DataSegmentOutputStream out = new DataSegmentOutputStream(new FileOutputStream(path))) {
+            for (int i = 0; i < count; i++) {
+                Segment segment = new Segment((int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000), (int) (Math.random() * 2000 - 1000));
                 out.writeSegment(segment);
             }
         } catch (IOException e) {
