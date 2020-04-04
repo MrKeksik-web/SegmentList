@@ -24,7 +24,7 @@ public class SegmentList {
     }
 
     public void show() {
-        System.out.println(segments);
+        //System.out.println(segments);
     }
 
     public void insert(Segment segment) {
@@ -53,12 +53,15 @@ public class SegmentList {
     }
 
     public void sort() {
-        for (int i = 0; i < segments.size(); i++) {
+        boolean flag = true;
+        for (int i = 0; i < segments.size() && flag; i++) {
             for (int j = 0; j < segments.size(); j++) {
+                flag = false;
                 if (segments.get(i).getLength() < segments.get(j).getLength()) {
                     Segment seg = segments.get(i);
                     segments.set(i, segments.get(j));
                     segments.set(j, seg);
+                    flag = true;
                 }
             }
         }
