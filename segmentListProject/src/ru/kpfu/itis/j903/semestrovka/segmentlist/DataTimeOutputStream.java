@@ -16,8 +16,8 @@ public class DataTimeOutputStream extends OutputStream {
     public void writeTime(ArrayList arr) throws IOException {
         out.writeChars(String.valueOf("N\t"));
         out.writeChars(String.valueOf("Time\n"));
-        for(int i = 0;i < arr.size();i++){
-            out.writeChars(String.valueOf(i + "\t"));
+        for (int i = 0; i < arr.size(); i++) {
+            out.writeChars(String.valueOf((i + 1) + "\t"));
             out.writeChars(String.valueOf(arr.get(i) + "\n"));
         }
     }
