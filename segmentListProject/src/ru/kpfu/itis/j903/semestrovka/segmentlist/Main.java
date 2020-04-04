@@ -19,22 +19,23 @@ public class Main {
         list.show();
     }
 
-    public static void writeTime(ArrayList arr,String path){
-        try(DataTimeOutputStream out = new DataTimeOutputStream(new FileOutputStream(path))) {
+    public static void writeTime(ArrayList arr, String path) {
+        try (DataTimeOutputStream out = new DataTimeOutputStream(new FileOutputStream(path))) {
             out.writeTime(arr);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void test(){
+    public static void test() {
         MethodTester tester = new MethodTester();
         ArrayList<double[]> arrTimes = new ArrayList();
-        int testsCount = 5;
-        for(int i = 0;i < testsCount;i++){
+        int testsCount = 200;
+        for (int i = 1; i <= testsCount; i++) {
             double[] arrAverages = new double[6];
             generate(i);
-            for(int j = 0;j < 1000;j++){
+            int count = 100;
+            for (int j = 0; j < count; j++) {
                 arrAverages[0] += tester.constructorTime();
                 arrAverages[1] += tester.showTime();
                 arrAverages[2] += tester.insertTime();
@@ -42,12 +43,12 @@ public class Main {
                 arrAverages[4] += tester.lengthListTime();
                 arrAverages[5] += tester.sortTime();
             }
-            arrAverages[0] = arrAverages[0]/1000;
-            arrAverages[1] = arrAverages[1]/1000;
-            arrAverages[2] = arrAverages[2]/1000;
-            arrAverages[3] = arrAverages[3]/1000;
-            arrAverages[4] = arrAverages[4]/1000;
-            arrAverages[5] = arrAverages[5]/1000;
+            arrAverages[0] = arrAverages[0] / count;
+            arrAverages[1] = arrAverages[1] / count;
+            arrAverages[2] = arrAverages[2] / count;
+            arrAverages[3] = arrAverages[3] / count;
+            arrAverages[4] = arrAverages[4] / count;
+            arrAverages[5] = arrAverages[5] / count;
             arrTimes.add(arrAverages);
         }
 
@@ -58,7 +59,7 @@ public class Main {
         ArrayList arrLength = new ArrayList();
         ArrayList arrSort = new ArrayList();
 
-        for(int i = 0;i < testsCount;i++){
+        for (int i = 0; i < testsCount; i++) {
             double[] arr2 = arrTimes.get(i);
             arrConst.add(arr2[0]);
             arrShow.add(arr2[1]);
@@ -67,12 +68,12 @@ public class Main {
             arrLength.add(arr2[4]);
             arrSort.add(arr2[5]);
         }
-        writeTime(arrConst,"constTimes.txt");
-        writeTime(arrShow,"showTimes.txt");
-        writeTime(arrIns,"insTimes.txt");
-        writeTime(arrAngle,"angleTimes.txt");
-        writeTime(arrLength,"lengthTimes.txt");
-        writeTime(arrSort,"sortTimes.txt");
+        writeTime(arrConst, "constTimes.txt");
+        writeTime(arrShow, "showTimes.txt");
+        writeTime(arrIns, "insTimes.txt");
+        writeTime(arrAngle, "angleTimes.txt");
+        writeTime(arrLength, "lengthTimes.txt");
+        writeTime(arrSort, "sortTimes.txt");
 //        MethodTester tester = new MethodTester();
 //        generate();
 //        double average1 = 0;
