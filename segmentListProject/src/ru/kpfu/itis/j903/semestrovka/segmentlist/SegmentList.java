@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SegmentList {
 
     protected List<Segment> segments;
+    protected Stream<Segment> stream;
 
 
     public SegmentList(String path) {
@@ -17,14 +19,16 @@ public class SegmentList {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stream = segments.stream();
     }
 
     private SegmentList(List<Segment> list) {
         segments = list;
+        stream = list.stream();
     }
 
     public void show() {
-        //System.out.println(segments);
+        System.out.println(segments);
     }
 
     public void insert(Segment segment) {
@@ -35,7 +39,7 @@ public class SegmentList {
 
     public SegmentList angleList() {
         double epsilon = 0.000001;
-        List<Segment> newList = segments.stream()
+        List<Segment> newList = stream
                 .filter(segment -> {
                     double k = (segment.getSecondYCoordinate() - segment.getFirstYCoordinate()) * 1.0 / (segment.getSecondXCoordinate() - segment.getFirstXCoordinate());
                     if (Math.abs(k - Math.sqrt(3)/3) < epsilon || Math.abs(k - 1) < epsilon) {
@@ -47,7 +51,7 @@ public class SegmentList {
     }
 
     public SegmentList lengthList(int a, int b) {
-        List<Segment> newList = segments.stream()
+        List<Segment> newList = stream
                 .filter(segment -> segment.getLength() >= a && segment.getLength() <= b).collect(Collectors.toList());
         return new SegmentList(newList);
     }
