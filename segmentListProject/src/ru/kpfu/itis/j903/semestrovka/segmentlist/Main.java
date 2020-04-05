@@ -15,8 +15,8 @@ public class Main {
 
     public static void generate(int count) {
         SegmentTestsGenerator generator = new SegmentTestsGenerator(count);
-        SegmentList list = new SegmentList("output.txt");
-        list.show();
+        AngleListTestGenerator generator1 = new AngleListTestGenerator(count);
+        LengthListTestGenerator generator2 = new LengthListTestGenerator(count);
     }
 
     public static void writeTime(ArrayList arr, String path) {
@@ -29,7 +29,7 @@ public class Main {
 
     public static void test() {
         MethodTester tester = new MethodTester();
-        ArrayList<double[]> arrTimes = new ArrayList();
+        ArrayList<double[]> arrTimes = new ArrayList<>();
         int testsCount = 200;
         for (int i = 1; i <= testsCount; i++) {
             double[] arrAverages = new double[6];
